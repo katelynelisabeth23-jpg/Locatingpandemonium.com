@@ -339,11 +339,11 @@ ol.rules li b{color:var(--teal);font-weight:500;font-variant-numeric:tabular-num
   <div class="g2 cov">
     <div class="stack">
       <h1>My back office never sleeps. It never hits send.</h1>
-      <p class="lede">How I run my locating business with a team of AI assistants, shown through one real client, and how any Smart City agent can copy it in about two hours.</p>
+      <p class="lede">How I run my locating business with a team of AI assistants, shown through one real client, and how any apartment locator or real estate agent can copy it in about two hours.</p>
       <p class="big2"><b>9</b> AI assistants · every text approved by me</p>
       <p class="big2">Runs on <b>existing Claude memberships</b> · set up in <b>2 hours</b></p>
     </div>
-    <canvas id="logo" width="1200" height="1200" role="img" aria-label="Smart City logo drawn from small gathering triangles"></canvas>
+    <canvas id="logo" width="1200" height="1200" role="img" aria-label="Logo drawn from small gathering triangles"></canvas>
   </div>
 </section>
 
@@ -597,12 +597,12 @@ function go(i){i=Math.max(0,Math.min(N-1,i));if(red){cards[i].scrollIntoView({be
 /* auto-cycling panels stop for good once someone taps them */
 function cycler(n,ms,show){var k=0,tm=null;show(0);if(!red)tm=setInterval(function(){k=(k+1)%n;show(k)},ms);return function(i){clearInterval(tm);k=i;show(i)}}
 
-/* cover logo: triangles gather into the Smart City mark, then it sharpens */
+/* cover logo: triangles gather into the logo mark, then it sharpens */
 (function(){var c=document.getElementById('logo');if(!c)return;var x=c.getContext('2d'),W=c.width,H=c.height;
 var S=400,Z=S*4,o=document.createElement('canvas');o.width=o.height=Z;var g=o.getContext('2d');g.scale(4,4);
 g.fillStyle=g.strokeStyle='#fff';g.lineJoin='round';g.lineWidth=34;g.beginPath();g.moveTo(200,52);g.lineTo(318,250);g.lineTo(82,250);g.closePath();g.fill();g.stroke();
 g.globalCompositeOperation='destination-out';g.lineCap='round';g.lineWidth=17;g.beginPath();g.arc(206,182,30,0,6.2832);g.stroke();g.beginPath();g.moveTo(186,204);g.lineTo(156,262);g.stroke();
-g.globalCompositeOperation='source-over';g.textAlign='center';g.textBaseline='middle';g.font='700 66px "Nunito","Varela Round",system-ui,-apple-system,"Segoe UI",Arial,sans-serif';g.fillText('smart city',200,338);
+g.globalCompositeOperation='source-over';g.textAlign='center';g.textBaseline='middle';g.font='700 66px "Nunito","Varela Round",system-ui,-apple-system,"Segoe UI",Arial,sans-serif';
 var d=g.getImageData(0,0,Z,Z).data,cols=['#8052FF','#3CC9A8','#6FA8FF','#FFFFFF','#B49CFF'],P=[];
 function mk(tx,ty,al){var amb=al<1;return{tx:tx,ty:ty,amb:amb,ro:amb?.40+Math.random()*.09:.16+Math.random()*.34,a0:Math.random()*6.283,w:(amb?.35:.9)+Math.random()*.5,tilt:amb?.32:.6,ph:Math.random()*6.3,s:1.6+Math.random()*2.4,r:Math.random()*6.3,c:cols[Math.random()*cols.length|0],a:amb?.9:1}}
 for(var yy=0;yy<Z;yy+=16)for(var xx=0;xx<Z;xx+=16)if(d[(yy*Z+xx)*4+3]>140)P.push(mk(xx/Z,yy/Z,1));
@@ -653,14 +653,14 @@ var pickC=cycler(SC.length,4000,function(i){[].forEach.call(cats.children,functi
 
 /* pushback */
 var Q=[
-['“It’ll text my clients without me.”','It can’t. Every text waits for my “send,” and I name which ones go.','Proof: the approval card, slide 6'],
+['“It’ll text my clients without me.”','It won’t. Every client text waits for my “send,” and I name which ones go.','Proof: the approval card, slide 7'],
 ['“Clients will feel it’s AI.”','You teach it your texting style. I told mine to never use periods and to keep it to 2 or 3 short casual sentences, so it sounds like me.','Proof: “Thank you so much! Can’t wait!”'],
 ['“It’ll get prices wrong.”','Quinn double-checks every price against its source, then I review.','Proof: Marisa’s list, slide 3'],
 ['“Will it replace me?”','No. It does the busywork. Relationships and decisions stay mine.','I still run every call and every tour'],
 ['“It’s too expensive.”','It’s available through existing Claude memberships. I use Max only because I built and tested all of this.','One lease pays for years of it'],
 ['“Is client info safe?”','It stays in my own accounts and never goes into outside AI tools.','Every agent gets a private copy'],
 ['“I’m not techy.”','You ask in plain English, like texting an assistant.','Setup: about 2 hours'],
-['“What if it breaks?”','Nothing goes out on its own, so the work just waits. Every draft is still there when it’s back.','The CRM is always the backup']];
+['“What if it breaks?”','No client text goes out on its own, so the work just waits. Every draft is still there when it’s back.','The CRM is always the backup']];
 var ql=document.getElementById('qlist'),qo=document.getElementById('qo'),qa=document.getElementById('qa'),qp=document.getElementById('qp'),qb=document.getElementById('qbi'),QT=6000;
 Q.forEach(function(q){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=q[0];ql.appendChild(b)});
 var pickQ=cycler(Q.length,QT,function(k){[].forEach.call(ql.children,function(b,i){b.className=i<k?'done':'';b.setAttribute('aria-selected',i===k)});
